@@ -7,7 +7,7 @@ public class frame {
 JFrame frame= new JFrame("Hello");
 frame.setSize(400,400);
 frame.setVisible(true);
-frame.setBackground(blue);
+frame.setBackground(bgColor);
 }
 public static void main (String[]args) {
 	new frame();
