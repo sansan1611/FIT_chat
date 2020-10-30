@@ -192,7 +192,7 @@ public class ServerGui {
 		mntmTeam.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-			new Team().setVisible(true);
+			new TeamGui().setVisible(true);
 				}
 			});
 		
@@ -201,7 +201,7 @@ public class ServerGui {
 		mntmSoftware.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-			new Software().setVisible(true);
+			new SoftwareGui().setVisible(true);
 				}
 			});
 		JMenuItem mntmHelp = new JMenuItem("Help");
@@ -209,7 +209,7 @@ public class ServerGui {
 		mntmHelp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-			new Help().setVisible(true);
+			new HelpGui().setVisible(true);
 				}
 			});
 		btnStart.addActionListener(new ActionListener() {
