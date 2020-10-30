@@ -2,25 +2,19 @@ package server;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Font;
 
-import javax.swing.JButton;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import com.sun.prism.Image;
-
 import java.awt.Color;
-import java.awt.SystemColor;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextArea;
-import javax.swing.ImageIcon;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 
-public class Help extends JDialog {
+public class SoftwareGui extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -29,7 +23,7 @@ public class Help extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			Help dialog = new Help();
+			SoftwareGui dialog = new SoftwareGui();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -40,31 +34,30 @@ public class Help extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public Help() {
+	public SoftwareGui() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(SystemColor.info);
+		contentPanel.setBackground(Color.WHITE);
+		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
+			JLabel lblIntroImage = new JLabel("");
+			ImageIcon imageIcon = new ImageIcon(new ImageIcon(SoftwareGui.class.getResource("/image/crewmate02.png")).getImage().getScaledInstance(70, 80, java.awt.Image.SCALE_SMOOTH));
+			
 			JTextArea txtrIntro = new JTextArea();
-			txtrIntro.setEditable(false);
-			txtrIntro.setToolTipText("");
-			txtrIntro.setBackground(SystemColor.info);
-			txtrIntro.setBounds(232, 11, 192, 138);
+			txtrIntro.setBackground(Color.WHITE);
 			txtrIntro.setWrapStyleWord(true);
-			txtrIntro.setText("Huong dan su dung!!");
+			txtrIntro.setText("Join with us!\r\nConect to another crewmate!\r\nChat immediately!\r\nLike, show emotions!\r\nSend files, images!\r\n\r\nCome and have fun!!!");
 			txtrIntro.setTabSize(4);
 			txtrIntro.setRows(3);
 			txtrIntro.setLineWrap(true);
+			txtrIntro.setEditable(false);
+			txtrIntro.setBounds(232, 11, 185, 155);
 			contentPanel.add(txtrIntro);
-		}
-		{
-			JLabel lblIntroImage = new JLabel("");
-			ImageIcon imageIcon = new ImageIcon(new ImageIcon(Help.class.getResource("/image/crewmate.png")).getImage().getScaledInstance(90, 100, java.awt.Image.SCALE_SMOOTH));
 			lblIntroImage.setIcon(imageIcon);
-			lblIntroImage.setBounds(332, 150, 92, 100);
+			lblIntroImage.setBounds(334, 173, 83, 77);
 			contentPanel.add(lblIntroImage);
 		}
 		
@@ -80,7 +73,7 @@ public class Help extends JDialog {
 		
 		JLabel lblImage = new JLabel("New label");
 		lblImage.setBounds(0, 0, 234, 141);
-		ImageIcon imageIcon = new ImageIcon(new ImageIcon(Help.class.getResource("/image/crewmates-team.jpg")).getImage().getScaledInstance(241, 141, java.awt.Image.SCALE_SMOOTH));
+		ImageIcon imageIcon = new ImageIcon(new ImageIcon(SoftwareGui.class.getResource("/image/crewmates-team.jpg")).getImage().getScaledInstance(241, 141, java.awt.Image.SCALE_SMOOTH));
 		lblImage.setIcon(imageIcon);
 		lblImage.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -93,4 +86,5 @@ public class Help extends JDialog {
 		panel.add(lblImage);
 		panel.add(lblWeAre);
 	}
+
 }
