@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import server.Team;
+
 import javax.swing.JButton;
 import java.awt.TextArea;
 import java.awt.Font;
@@ -187,12 +189,29 @@ public class ServerGui {
 		
 		JMenuItem mntmTeam = new JMenuItem("Team");
 		mnNewMenu.add(mntmTeam);
+		mntmTeam.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+			new Team().setVisible(true);
+				}
+			});
 		
 		JMenuItem mntmSoftware = new JMenuItem("Software");
 		mnNewMenu.add(mntmSoftware);
-		
+		mntmSoftware.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+			new Software().setVisible(true);
+				}
+			});
 		JMenuItem mntmHelp = new JMenuItem("Help");
 		mnNewMenu.add(mntmHelp);
+		mntmHelp.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+			new Help().setVisible(true);
+				}
+			});
 		btnStart.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
