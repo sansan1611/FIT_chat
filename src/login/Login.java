@@ -23,11 +23,12 @@ import javax.swing.UIManager;
 //import javax.swing.JList;
 //import javax.swing.ImageIcon;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class Login {
- private static String NAME_FAILED = "THIS NAME CONTAINS INVALID CHARACTER. PLEASE TRY AGAIN";
- private static String NAME_EXSIST = "THIS NAME IS ALREADY USED. PLEASE TRY AGAIN";
- private static String SERVER_NOT_START = "TURN ON SERVER BEFORE START";
+ private static String NAME_FAILED = "ENTER VALID CREWNAME";
+ private static String NAME_EXSIST = "DUBLICATE CREWNAME";
+ private static String SERVER_NOT_START = "TURN ON SERVER";
 
  private Pattern checkName = Pattern.compile("[_a-zA-Z][_a-zA-Z0-9]*");
 
@@ -37,7 +38,7 @@ public class Login {
  private JTextField txtIP;	
  private JTextField txtUsername;
  private JButton btnLogin;
- private JLabel lblNewLabel_5;
+ private JLabel lblNewLabel_1;
 
  public static void main(String[] args) {
   EventQueue.invokeLater(new Runnable() {
@@ -59,7 +60,7 @@ public class Login {
  private void initialize() {
   frameLoginForm = new JFrame();
   frameLoginForm.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
-  frameLoginForm.getContentPane().setBackground(new Color(245, 245, 245));
+  frameLoginForm.getContentPane().setBackground(Color.WHITE);
   frameLoginForm.getContentPane().setFont(new Font("OCR A Extended", Font.PLAIN, 14));
   frameLoginForm.setTitle("Crewmates Gate");
   frameLoginForm.setResizable(false);
@@ -85,7 +86,9 @@ public class Login {
   lblUserName.setIcon(new javax.swing.ImageIcon(Login.class.getResource("")));
 
   lblError = new JLabel("");
-  lblError.setBounds(66, 287, 399, 20);
+  lblError.setForeground(Color.RED);
+  lblError.setFont(new Font("OCR A Extended", Font.PLAIN, 12));
+  lblError.setBounds(10, 180, 201, 20);
   frameLoginForm.getContentPane().add(lblError);
 
   txtIP = new JTextField();
@@ -102,7 +105,7 @@ public class Login {
   btnLogin = new JButton("Get in the ship");
   btnLogin.setForeground(new Color(70, 130, 180));
   btnLogin.setFont(new Font("OCR A Extended", Font.ITALIC, 12));
- // btnLogin.setIcon(new javax.swing.ImageIcon(Login.class.getResource("https://img.icons8.com/clouds/2x/login-rounded-right.png")));
+ btnLogin.setIcon(new ImageIcon(Login.class.getResource("/image/icons8-login-100.png")));
   btnLogin.addActionListener(new ActionListener() {
 
    public void actionPerformed(ActionEvent arg0) {
@@ -134,7 +137,6 @@ public class Login {
        return;
       }
       new MainGui(IP, portPeer, name, msg);
-      //						new menuGUI(IP, portPeer, "toan", msg);
       frameLoginForm.dispose();
      } catch (Exception e) {
       lblError.setText(SERVER_NOT_START);
@@ -150,18 +152,17 @@ public class Login {
    }
   });
   
-  btnLogin.setBounds(297, 185, 179, 48);
+  btnLogin.setBounds(225, 199, 262, 48);
   frameLoginForm.getContentPane().add(btnLogin);
   
   JLabel lblNewLabel = new JLabel("New label");
   lblNewLabel.setBounds(288, 82, 46, 14);
   frameLoginForm.getContentPane().add(lblNewLabel);
   
-  lblNewLabel_5 = new JLabel("");
-  lblNewLabel_5.setBackground(new Color(230, 230, 250));
-  //lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\kagam\\OneDrive\\M\u00E1y t\u00EDnh\\st,small,507x507-pad,600x600,f8f8f8 (2).jpg"));
-  lblNewLabel_5.setBounds(26, 11, 179, 249);
-  frameLoginForm.getContentPane().add(lblNewLabel_5);
+  lblNewLabel_1 = new JLabel("");
+  lblNewLabel_1.setIcon(new ImageIcon(Login.class.getResource("/image/Untitled.png")));
+  lblNewLabel_1.setBounds(41, 39, 139, 177);
+  frameLoginForm.getContentPane().add(lblNewLabel_1);
   lblError.setVisible(false);
 
 
