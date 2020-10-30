@@ -13,7 +13,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import server.Team;
 
 import javax.swing.JButton;
 import java.awt.TextArea;
