@@ -1,104 +1,118 @@
 package server;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.FlowLayout;
 
-import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JTextPane;
-import javax.swing.SwingConstants;
-import java.awt.Font;
+
+import com.sun.prism.Image;
+
 import java.awt.Color;
 import java.awt.SystemColor;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
-public class Team extends JFrame {
+public class Team extends JDialog {
 
-	private JPanel contentPane;
+	private final JPanel contentPanel = new JPanel();
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Team frame = new Team();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		try {
+			Team dialog = new Team();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the dialog.
 	 */
 	public Team() {
-		setTitle("About our Team!!!");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 444, 285);
-		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		setBounds(100, 100, 450, 321);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(new Color(255, 255, 255));
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		{
+			ImageIcon imageIcon = new ImageIcon(new ImageIcon(Team.class.getResource("/image/crewmate.png")).getImage().getScaledInstance(90, 100, java.awt.Image.SCALE_SMOOTH));
+		}
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.activeCaptionBorder);
-		panel.setBounds(0, 0, 192, 246);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		panel.setBackground(new Color(255, 218, 185));
+		panel.setBounds(0, 0, 222, 282);
+		contentPanel.add(panel);
 		
 		JLabel lblCrewmates = new JLabel("CREWMATEs <3");
-		lblCrewmates.setBounds(10, 196, 172, 27);
+		lblCrewmates.setBounds(55, 232, 120, 17);
 		lblCrewmates.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCrewmates.setFont(new Font("OCR A Extended", Font.PLAIN, 16));
-		panel.add(lblCrewmates);
 		
 		JLabel lblImage = new JLabel("New label");
+		lblImage.setBounds(0, 0, 234, 159);
+		ImageIcon imageIcon = new ImageIcon(new ImageIcon(Team.class.getResource("/image/crewmates-team.jpg")).getImage().getScaledInstance(250, 200, java.awt.Image.SCALE_SMOOTH));
+		lblImage.setIcon(imageIcon);
 		lblImage.setHorizontalAlignment(SwingConstants.CENTER);
-		lblImage.setIcon(new ImageIcon(Team.class.getResource("/image/among-shhh.jpg")));
-		lblImage.setBounds(0, 0, 192, 158);
-		panel.add(lblImage);
 		
 		JLabel lblWeAre = new JLabel("We are..");
+		lblWeAre.setBounds(72, 196, 80, 17);
 		lblWeAre.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWeAre.setFont(new Font("OCR A Extended", Font.PLAIN, 16));
-		lblWeAre.setBounds(10, 164, 172, 38);
+		panel.setLayout(null);
+		panel.add(lblCrewmates);
+		panel.add(lblImage);
 		panel.add(lblWeAre);
 		
 		JLabel lblTrngNgcQunh = new JLabel("TRUONG NGOC QUYNH...\r\n\r\n");
 		lblTrngNgcQunh.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTrngNgcQunh.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
-		lblTrngNgcQunh.setBounds(202, 67, 216, 15);
-		contentPane.add(lblTrngNgcQunh);
+		lblTrngNgcQunh.setBounds(232, 78, 192, 15);
+		contentPanel.add(lblTrngNgcQunh);
 		
 		JLabel lblTranThiMai = new JLabel("TRAN THI MAI HUONG...");
 		lblTranThiMai.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTranThiMai.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
-		lblTranThiMai.setBounds(202, 136, 216, 15);
-		contentPane.add(lblTranThiMai);
+		lblTranThiMai.setBounds(232, 173, 192, 15);
+		contentPanel.add(lblTranThiMai);
 		
 		JLabel lblLamThiThuong = new JLabel("LAM THI THUONG HUYEN... ");
 		lblLamThiThuong.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLamThiThuong.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
-		lblLamThiThuong.setBounds(203, 207, 215, 15);
-		contentPane.add(lblLamThiThuong);
+		lblLamThiThuong.setBounds(232, 256, 192, 15);
+		contentPanel.add(lblLamThiThuong);
 		
-		JLabel lblQuynhImage = new JLabel("Insert image");
-		lblQuynhImage.setBounds(290, 27, 46, 14);
-		contentPane.add(lblQuynhImage);
+		JLabel lblQuynhImage = new JLabel("");
+		ImageIcon img1 = new ImageIcon(new ImageIcon(Team.class.getResource("/image/crewmate.png")).getImage().getScaledInstance(50, 60, java.awt.Image.SCALE_SMOOTH));
+		lblQuynhImage.setIcon(img1);
+		lblQuynhImage.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuynhImage.setBounds(304, 11, 50, 56);
+		contentPanel.add(lblQuynhImage);
 		
-		JLabel lblHuongImage = new JLabel("Insert image");
-		lblHuongImage.setBounds(290, 111, 46, 14);
-		contentPane.add(lblHuongImage);
+		JLabel lblHuongImage = new JLabel("");
+		ImageIcon img2 = new ImageIcon(new ImageIcon(Team.class.getResource("/image/crewmate02.png")).getImage().getScaledInstance(50, 60, java.awt.Image.SCALE_SMOOTH));
+		lblHuongImage.setIcon(img2);
+		lblHuongImage.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHuongImage.setBounds(304, 104, 50, 60);
+		contentPanel.add(lblHuongImage);
 		
-		JLabel lblHuyenImage = new JLabel("Insert image");
-		lblHuyenImage.setBounds(290, 171, 46, 14);
-		contentPane.add(lblHuyenImage);
+		JLabel lblHuyenImage = new JLabel("");
+		lblHuyenImage.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon img3 = new ImageIcon(new ImageIcon(Team.class.getResource("/image/crewmate03.png")).getImage().getScaledInstance(50, 60, java.awt.Image.SCALE_SMOOTH));
+		lblHuyenImage.setIcon(img3);
+		lblHuyenImage.setBounds(304, 189, 50, 86);
+		contentPanel.add(lblHuyenImage);
 	}
 }
