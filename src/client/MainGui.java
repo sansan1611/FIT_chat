@@ -98,7 +98,7 @@ public class MainGui {
 
 		JLabel lblHello = new JLabel("Welcome ");
 		lblHello.setFont(new Font("OCR A Extended", Font.ITALIC, 14));
-		lblHello.setBounds(197, 65, 287, 16);
+		lblHello.setBounds(197, 65, 69, 16);
 		frameMainGui.getContentPane().add(lblHello);
 
 
@@ -195,10 +195,10 @@ public class MainGui {
 		listActive.setBounds(20, 215, 449, 197);
 		frameMainGui.getContentPane().add(listActive);
 		
-		lblUsername = new JLabel(nameUser);
-		lblUsername.setForeground(new Color(255, 99, 71));
-		lblUsername.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblUsername.setBounds(225, 76, 146, 16);
+		lblUsername = new JLabel("456");
+		lblUsername.setForeground(new Color(165, 42, 42));
+		lblUsername.setFont(new Font("OCR A Extended", Font.PLAIN, 15));
+		lblUsername.setBounds(259, 65, 146, 16);
 		frameMainGui.getContentPane().add(lblUsername);
 		
 		JLabel lblNewLabel = new JLabel("");
