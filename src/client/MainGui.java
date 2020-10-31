@@ -196,7 +196,7 @@ public class MainGui {
 		frameMainGui.getContentPane().add(listActive);
 		
 		lblUsername = new JLabel("456");
-		lblUsername.setForeground(new Color(255, 99, 71));
+		lblUsername.setForeground(new Color(165, 42, 42));
 		lblUsername.setFont(new Font("OCR A Extended", Font.PLAIN, 15));
 		lblUsername.setBounds(259, 65, 146, 16);
 		frameMainGui.getContentPane().add(lblUsername);
