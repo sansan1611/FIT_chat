@@ -18,6 +18,10 @@ import java.awt.Color;
 import javax.swing.JList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Window.Type;
+import java.awt.SystemColor;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class MainGui {
 
@@ -80,30 +84,32 @@ public class MainGui {
 	
 	private void initialize() {
 		frameMainGui = new JFrame();
-		frameMainGui.setTitle("Menu Chat");
+		frameMainGui.getContentPane().setFont(new Font("OCR A Extended", Font.PLAIN, 11));
+		frameMainGui.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
+		frameMainGui.setTitle("Menu Discussion");
 		frameMainGui.setResizable(false);
 		frameMainGui.setBounds(100, 100, 500, 560);
 		frameMainGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameMainGui.getContentPane().setLayout(null);
 
-		JLabel lblHello = new JLabel("Welcome");
-		lblHello.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		lblHello.setBounds(12, 82, 70, 16);
+		JLabel lblHello = new JLabel("Welcome ");
+		lblHello.setFont(new Font("OCR A Extended", Font.ITALIC, 14));
+		lblHello.setBounds(164, 76, 287, 16);
 		frameMainGui.getContentPane().add(lblHello);
 
 
-		JLabel lblFriendsName = new JLabel("Name Friend: ");
-		lblFriendsName.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblFriendsName.setBounds(12, 425, 110, 16);
+		JLabel lblFriendsName = new JLabel("Crewmate name\r\n");
+		lblFriendsName.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
+		lblFriendsName.setBounds(10, 370, 110, 16);
 		frameMainGui.getContentPane().add(lblFriendsName);
 		
 		txtNameFriend = new JTextField("");
-		txtNameFriend.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		txtNameFriend.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
 		txtNameFriend.setColumns(10);
-		txtNameFriend.setBounds(100, 419, 384, 28);
+		txtNameFriend.setBounds(116, 365, 366, 28);
 		frameMainGui.getContentPane().add(txtNameFriend);
 
-		btnChat = new JButton("Chat");
+		btnChat = new JButton("Discussion");
 		btnChat.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 
 		btnChat.addActionListener(new ActionListener() {
@@ -132,10 +138,10 @@ public class MainGui {
 				Tags.show(frameMainGui, "Friend is not found. Please wait to update your list friend", false);
 			}
 		});
-		btnChat.setBounds(20, 465, 129, 44);
+		btnChat.setBounds(25, 442, 129, 44);
 		frameMainGui.getContentPane().add(btnChat);
-		btnChat.setIcon(new javax.swing.ImageIcon(MainGui.class.getResource("/image/chat.png")));
-		btnExit = new JButton("Exit");
+		btnChat.setIcon(new ImageIcon(MainGui.class.getResource("/image/icons8-chat-bubble-32.png")));
+		btnExit = new JButton("Leave");
 		btnExit.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -150,25 +156,25 @@ public class MainGui {
 				}
 			}
 		});
-		btnExit.setBounds(353, 465, 129, 44);
-		btnExit.setIcon(new javax.swing.ImageIcon(MainGui.class.getResource("/image/stop.png")));
+		btnExit.setBounds(355, 442, 129, 44);
+		btnExit.setIcon(new ImageIcon(MainGui.class.getResource("/image/icons8-multiply-32.png")));
 		frameMainGui.getContentPane().add(btnExit);
 		
-		lblLogo = new JLabel("CONNECT WITH EVERYONE IN THE WORLD");
-		lblLogo.setForeground(new Color(0, 0, 205));
-		lblLogo.setIcon(new javax.swing.ImageIcon(MainGui.class.getResource("/image/connect.png")));
-		lblLogo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblLogo.setBounds(51, 13, 413, 38);
+		lblLogo = new JLabel("CONNECT WITH CREWMATES IN THE SHIP");
+		lblLogo.setForeground(new Color(95, 158, 160));
+		lblLogo.setIcon(new ImageIcon(MainGui.class.getResource("/image/icons8-spaceship.png")));
+		lblLogo.setFont(new Font("OCR A Extended", Font.BOLD, 17));
+		lblLogo.setBounds(20, 11, 444, 79);
 		frameMainGui.getContentPane().add(lblLogo);
 		
-		lblActiveNow = new JLabel("List Account Active Now");
+		lblActiveNow = new JLabel("Crewmates showed up in the ship");
 		lblActiveNow.setForeground(new Color(100, 149, 237));
-		lblActiveNow.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblActiveNow.setBounds(10, 123, 156, 16);
+		lblActiveNow.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
+		lblActiveNow.setBounds(10, 123, 271, 16);
 		frameMainGui.getContentPane().add(lblActiveNow);
 		
 		listActive = new JList<>(model);
-		listActive.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		listActive.setFont(new Font("OCR A Extended", Font.PLAIN, 15));
 		listActive.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -176,13 +182,13 @@ public class MainGui {
 				txtNameFriend.setText(value);
 			}
 		});
-		listActive.setBounds(12, 152, 472, 251);
+		listActive.setBounds(10, 150, 474, 204);
 		frameMainGui.getContentPane().add(listActive);
 		
 		lblUsername = new JLabel(nameUser);
-		lblUsername.setForeground(Color.RED);
+		lblUsername.setForeground(new Color(255, 99, 71));
 		lblUsername.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblUsername.setBounds(75, 76, 156, 28);
+		lblUsername.setBounds(225, 76, 146, 16);
 		frameMainGui.getContentPane().add(lblUsername);
 	
 			
