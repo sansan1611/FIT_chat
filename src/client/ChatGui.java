@@ -375,16 +375,27 @@ public class ChatGui {
 
 		txtPath = new JTextField("");
 		txtPath.setBounds(76, 163, 433, 25);
+		txtPath.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		panelMessage.add(txtPath);
 		txtPath.setEditable(false);
 		txtPath.setColumns(10);
+		txtPath.setVisible(false);
 
-		Label labelPath = new Label("Path");
-		labelPath.setBounds(10, 166, 39, 22);
-		panelMessage.add(labelPath);
-		labelPath.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 
-		// Like btn
+		JPanel panelEmoji = new JPanel();
+		panelEmoji.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelEmoji.setForeground(Color.PINK);
+		panelEmoji.setBounds(199, 90, 320, 51);
+		panelEmoji.setVisible(false);
+		panelMessage.add(panelEmoji);
+		
+		panelMessage.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			panelEmoji.setVisible(false);
+		}
+	});
+
 		JButton btnSendLike = new JButton("");
 		btnSendLike.setBounds(534, 11, 52, 39);
 		btnSendLike.addActionListener(new ActionListener() {
@@ -546,7 +557,7 @@ public class ChatGui {
 		buttonSadIcon.setContentAreaFilled(false);
 		buttonSadIcon.setBorder(new EmptyBorder(0, 0, 0, 0));
 		panelMessage.add(buttonSadIcon);
-		
+
 		
 		// Change Theme btn
 		btnChangeTheme = new JButton("");
@@ -556,6 +567,91 @@ public class ChatGui {
 		frameChatGui.getContentPane().add(btnChangeTheme);
 		
 		setLightGui(frameChatGui, txtDisplayChat, textName, btnChangeTheme, btnDisConnect, panelMessage, txtMessage, labelPath);
+
+		JButton btnEmoji = new JButton("");
+		btnEmoji.setIcon(new ImageIcon(ChatGui.class.getResource("/image/start.png")));
+		btnEmoji.setContentAreaFilled(false);
+		btnEmoji.setBorder(new EmptyBorder(0, 0, 0, 0));
+		btnEmoji.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		btnEmoji.setBounds(447, 44, 50, 51);
+		panelMessage.add(btnEmoji);
+		
+		btnChoose = new JButton("");
+		btnChoose.setBounds(553, 51, 32, 32);
+		panelMessage.add(btnChoose);
+		btnChoose.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		btnChoose.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/attachment.png")));
+		btnChoose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setCurrentDirectory(new File(System
+						.getProperty("user.home")));
+				fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				int result = fileChooser.showOpenDialog(frameChatGui);
+				if (result == JFileChooser.APPROVE_OPTION) {
+					isSendFile = true;
+					String path_send = (fileChooser.getSelectedFile()
+							.getAbsolutePath()) ;
+					System.out.println(path_send);
+					nameFile = fileChooser.getSelectedFile().getName();
+					txtPath.setText(path_send);
+					txtPath.setVisible(true);
+				}
+			}
+		});
+		btnChoose.setBorder(BorderFactory.createEmptyBorder());
+		btnChoose.setContentAreaFilled(false);
+		
+				progressSendFile = new JProgressBar(0, 100);
+				progressSendFile.setForeground(Color.BLACK);
+				progressSendFile.setBounds(30, 28, 405, 25);
+				panelMessage.add(progressSendFile);
+				progressSendFile.setStringPainted(true);
+				
+						txtMessage = new JTextField("");
+						txtMessage.setBounds(20, 22, 425, 62);
+						panelMessage.add(txtMessage);
+						txtMessage.setColumns(10);
+						
+								txtMessage.addKeyListener(new KeyListener() {
+						
+									@Override
+									public void keyTyped(KeyEvent arg0) {
+						
+									}
+						
+									@Override
+									public void keyReleased(KeyEvent arg0) {
+						
+									}
+									
+									@Override
+									public void keyPressed(KeyEvent arg0) {
+										if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+											String msg = txtMessage.getText();
+											if (isStop) {
+												updateChat_send(txtMessage.getText().toString());
+												txtMessage.setText("");
+												return;
+											}
+											if (msg.equals("")) {
+												txtMessage.setText("");
+												txtMessage.setCaretPosition(0);
+												return;
+											}
+											try {
+												chat.sendMessage(Encode.sendMessage(msg));
+												updateChat_send(msg);
+												txtMessage.setText("");
+												txtMessage.setCaretPosition(0);
+											} catch (Exception e) {
+												txtMessage.setText("");
+												txtMessage.setCaretPosition(0);
+											}
+										}
+									}
+								});
+				progressSendFile.setVisible(false);
 		
 		btnChangeTheme.addActionListener(new ActionListener() {
 			@Override
@@ -646,7 +742,11 @@ public class ChatGui {
 								}
 							}).start();
 						} else if (msgObj.equals(Tags.FILE_REQ_NOACK_TAG)) {
-							Tags.show(frameChatGui, nameGuest + " don't want receive file", false);
+
+							Tags.show(frameChatGui, nameGuest
+									+ " don't want receive file", false);
+							txtPath.setVisible(false);
+
 						} else if (msgObj.equals(Tags.FILE_DATA_BEGIN_TAG)) {
 							finishReceive = false;
 							lblReceive.setVisible(true);
@@ -703,6 +803,7 @@ public class ChatGui {
 				textState.setText("File is too large...");
 				inFileSend.close();
 				txtPath.setText("");
+				txtPath.setVisible(true);
 				btnChoose.setEnabled(true);
 				isSendFile = false;
 				inFileSend.close();
