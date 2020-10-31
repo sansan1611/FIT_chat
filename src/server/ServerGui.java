@@ -92,7 +92,7 @@ public class ServerGui {
 		txtIP = new JTextField();
 		txtIP.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtIP.setEditable(false);
-		txtIP.setBounds(126, 114, 176, 28);				////// Vi tri text Ip
+		txtIP.setBounds(127, 114, 176, 28);				////// Vi tri text Ip
 		frmServerMangement.getContentPane().add(txtIP);
 		txtIP.setColumns(10);
 		try {

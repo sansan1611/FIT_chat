@@ -364,7 +364,7 @@ public class ChatGui {
 								btnHeartEyeIcon.setContentAreaFilled(false);
 								btnHeartEyeIcon.addActionListener(new ActionListener() {
 									public void actionPerformed(ActionEvent arg0) {
-										String msg = "<img src='" + ChatGui.class.getResource("/image/heart_eye.png") + "'></img>";
+										String msg = "<img src='" + ChatGui.class.getResource("/image/028-unicorn.png") + "'></img>";
 										try {
 											chat.sendMessage(Encode.sendMessage(msg));
 										} catch (Exception e1) {
@@ -382,7 +382,7 @@ public class ChatGui {
 										btnSmileCryingIcon.setContentAreaFilled(false);
 										btnSmileCryingIcon.addActionListener(new ActionListener() {
 											public void actionPerformed(ActionEvent arg0) {
-												String msg = "<img src='" + ChatGui.class.getResource("/image/smile_cry.png") + "'></img>";
+												String msg = "<img src='" + ChatGui.class.getResource("/image/023-unicorn.png") + "'></img>";
 												try {
 													chat.sendMessage(Encode.sendMessage(msg));
 												} catch (Exception e1) {
@@ -399,7 +399,7 @@ public class ChatGui {
 																		btnCryingIcon.setContentAreaFilled(false);
 																		btnCryingIcon.addActionListener(new ActionListener() {
 																			public void actionPerformed(ActionEvent arg0) {
-																				String msg = "<img src='" + ChatGui.class.getResource("/image/crying.png") + "'></img>";
+																				String msg = "<img src='" + ChatGui.class.getResource("/image/005-unicorn.png") + "'></img>";
 																				try {
 																					chat.sendMessage(Encode.sendMessage(msg));
 																				} catch (Exception e1) {
@@ -415,7 +415,7 @@ public class ChatGui {
 																		panelEmoji.add(buttonSadIcon);
 																		buttonSadIcon.addActionListener(new ActionListener() {
 																			public void actionPerformed(ActionEvent e) {
-																				String msg = "<img src='" + ChatGui.class.getResource("/image/sad.png") + "'></img>";
+																				String msg = "<img src='" + ChatGui.class.getResource("/image/014-unicorn.png") + "'></img>";
 																				try {
 																					chat.sendMessage(Encode.sendMessage(msg));
 																				} catch (Exception e1) {
@@ -434,7 +434,7 @@ public class ChatGui {
 																panelEmoji.add(btnSmileIcon);
 																btnSmileIcon.addActionListener(new ActionListener() {
 																	public void actionPerformed(ActionEvent arg0) {
-																		String msg = "<img src='" + ChatGui.class.getResource("/image/smile.png") + "'></img>";
+																		String msg = "<img src='" + ChatGui.class.getResource("/image/035-unicorn.png") + "'></img>";
 																		System.out.println("Origin Mess: " + msg);
 																		System.out.println("Encoded Mess: " + Encode.sendMessage(msg));
 																		try {
@@ -454,7 +454,7 @@ public class ChatGui {
 														panelEmoji.add(buttonScaredIcon);
 														buttonScaredIcon.addActionListener(new ActionListener() {
 															public void actionPerformed(ActionEvent e) {
-																String msg = "<img src='" + ChatGui.class.getResource("/image/scared.png") + "'></img>";
+																String msg = "<img src='" + ChatGui.class.getResource("/image/012-unicorn.png") + "'></img>";
 																try {
 																	chat.sendMessage(Encode.sendMessage(msg));
 																} catch (Exception e1) {
@@ -474,7 +474,7 @@ public class ChatGui {
 												btnSmileBigIcon.setContentAreaFilled(false);
 												btnSmileBigIcon.addActionListener(new ActionListener() {
 													public void actionPerformed(ActionEvent arg0) {
-														String msg = "<img src='" + ChatGui.class.getResource("/image/smile_big.png") + "'></img>";
+														String msg = "<img src='" + ChatGui.class.getResource("/image/016-unicorn.png") + "'></img>";
 														try {
 															chat.sendMessage(Encode.sendMessage(msg));
 														} catch (Exception e1) {
