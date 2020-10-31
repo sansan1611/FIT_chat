@@ -204,8 +204,9 @@ public class ChatGui {
 		textName.setColumns(10);
 
 		// Leave Chat btn
-		btnDisConnect = new JButton("LEAVE CHAT");
-		btnDisConnect.setBounds(540, 6, 113, 40);
+		btnDisConnect = new JButton("");
+		btnDisConnect.setIcon(new ImageIcon(ChatGui.class.getResource("/image/exit.png")));
+		btnDisConnect.setBounds(602, 6, 50, 46);
 		frameChatGui.getContentPane().add(btnDisConnect);
 		btnDisConnect.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		btnDisConnect.addActionListener(new ActionListener() {
@@ -549,8 +550,9 @@ public class ChatGui {
 		
 		// Change Theme btn
 		btnChangeTheme = new JButton("");
+		btnChangeTheme.setIcon(new ImageIcon(ChatGui.class.getResource("/image/change.png")));
 		btnChangeTheme.setBackground(SystemColor.controlShadow);
-		btnChangeTheme.setBounds(459, 6, 71, 40);
+		btnChangeTheme.setBounds(542, 6, 52, 46);
 		frameChatGui.getContentPane().add(btnChangeTheme);
 		
 		setLightGui(frameChatGui, txtDisplayChat, textName, btnChangeTheme, btnDisConnect, panelMessage, txtMessage, labelPath);
