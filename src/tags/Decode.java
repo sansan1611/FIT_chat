@@ -130,8 +130,6 @@ public class Decode {
 	}
 
 	public static String getMessage(String msg) {
-//		System.out.print("Ham getMessage o decode.java duoc goi");
-//		System.out.print(msg);
 		if (message.matcher(msg).matches()) {
 			int begin = Tags.CHAT_MSG_OPEN_TAG.length();
 			int end = msg.length() - Tags.CHAT_MSG_CLOSE_TAG.length();
