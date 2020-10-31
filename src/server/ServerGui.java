@@ -73,6 +73,7 @@ public class ServerGui {
 
 	private void initialize() {
 		frmServerMangement = new JFrame();
+		frmServerMangement.setFont(new Font("OCR A Extended", Font.PLAIN, 12));
 		frmServerMangement.setForeground(UIManager.getColor("RadioButtonMenuItem.foreground"));
 		frmServerMangement.getContentPane().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		frmServerMangement.getContentPane().setForeground(UIManager.getColor("RadioButtonMenuItem.acceleratorSelectionForeground"));
@@ -84,12 +85,12 @@ public class ServerGui {
 		frmServerMangement.setBackground(Color.ORANGE);
 
 		JLabel lblIP = new JLabel("IP ADDRESS");
-		lblIP.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblIP.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
 		lblIP.setBounds(26, 120, 89, 16);					////// Vi tri lbl IP
 		frmServerMangement.getContentPane().add(lblIP);
 
 		txtIP = new JTextField();
-		txtIP.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		txtIP.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtIP.setEditable(false);
 		txtIP.setBounds(126, 114, 176, 28);				////// Vi tri text Ip
 		frmServerMangement.getContentPane().add(txtIP);
@@ -106,7 +107,7 @@ public class ServerGui {
 		
 		btnStart.setBounds(36, 148, 89, 43);			/////// Vi tri button START
 		frmServerMangement.getContentPane().add(btnStart);
-		btnStart.setIcon(new javax.swing.ImageIcon(ServerGui.class.getResource("/image/start.png")));
+		btnStart.setIcon(new ImageIcon(ServerGui.class.getResource("/image/start.png")));
 		
 //		BufferedImage img = null;
 //		try {
@@ -121,9 +122,9 @@ public class ServerGui {
 		
 		JLabel lblNhom = new JLabel("Crewmate Server");
 	
-		lblNhom.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		lblNhom.setBounds(241, 16, 331, 76);
-		lblNhom.setIcon(new ImageIcon(ServerGui.class.getResource("/image/icon.png")));
+		lblNhom.setFont(new Font("OCR A Extended", Font.PLAIN, 24));
+		lblNhom.setBounds(219, 10, 422, 92);
+		lblNhom.setIcon(new ImageIcon(ServerGui.class.getResource("/image/among-us.png")));
 		frmServerMangement.getContentPane().add(lblNhom);
 
 		txtMessage = new TextArea();					
@@ -154,15 +155,15 @@ public class ServerGui {
 		});
 		btnStop.setBounds(176, 148, 98, 43);						//// Vi tri button Stop
 		frmServerMangement.getContentPane().add(btnStop);
-		btnStop.setIcon(new ImageIcon(ServerGui.class.getResource("/image/end.png")));
+		btnStop.setIcon(new ImageIcon(ServerGui.class.getResource("/image/off.png")));
 		
 		JLabel lblnew111 = new JLabel("STATUS");
-		lblnew111.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblnew111.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
 		lblnew111.setBounds(416, 120, 89, 16);
 		frmServerMangement.getContentPane().add(lblnew111);
 		
 		lblStatus = new JLabel("New label");
-		lblStatus.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblStatus.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
 		lblStatus.setBounds(516, 120, 98, 16);
 
 
@@ -170,23 +171,30 @@ public class ServerGui {
 		lblStatus.setText("<html><font color='red'>OFF</font></html>");
 		
 		JLabel lbllabelUserOnline = new JLabel("ONLINE");
-		lbllabelUserOnline.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lbllabelUserOnline.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
 		lbllabelUserOnline.setBounds(416, 164, 89, 16);
 		frmServerMangement.getContentPane().add(lbllabelUserOnline);
 		
 		lblUserOnline = new JLabel("0");
 		lblUserOnline.setForeground(Color.BLUE);
-		lblUserOnline.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblUserOnline.setFont(new Font("Dialog", Font.PLAIN, 14));
 		lblUserOnline.setBounds(516, 164, 56, 16);
 		frmServerMangement.getContentPane().add(lblUserOnline);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(ServerGui.class.getResource("/image/kisspng-grizzly-bear-desktop-wallpaper-we-bare-bears-sea-bears-5ac5e745ca62c9.727267041522919237829.png")));
+		lblNewLabel.setBounds(325, 157, 304, 163);
+		frmServerMangement.getContentPane().add(lblNewLabel);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmServerMangement.setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Menu");
+		mnNewMenu.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmTeam = new JMenuItem("Team");
+		mntmTeam.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
 		mnNewMenu.add(mntmTeam);
 		mntmTeam.addActionListener(new ActionListener() {
 			@Override
@@ -196,6 +204,7 @@ public class ServerGui {
 			});
 		
 		JMenuItem mntmSoftware = new JMenuItem("Software");
+		mntmSoftware.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
 		mnNewMenu.add(mntmSoftware);
 		mntmSoftware.addActionListener(new ActionListener() {
 			@Override
@@ -204,6 +213,7 @@ public class ServerGui {
 				}
 			});
 		JMenuItem mntmHelp = new JMenuItem("Help");
+		mntmHelp.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
 		mnNewMenu.add(mntmHelp);
 		mntmHelp.addActionListener(new ActionListener() {
 			@Override
