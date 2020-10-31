@@ -14,6 +14,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.Label;
 
 import java.io.File;
@@ -40,6 +42,11 @@ import javax.swing.JTextPane;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.border.EmptyBorder;
+import javax.swing.UIManager;
+import javax.swing.ImageIcon;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
 
 public class ChatGui {
@@ -179,51 +186,29 @@ public class ChatGui {
 		frameChatGui.getContentPane().add(panelMessage);
 		panelMessage.setLayout(null);
 
-		txtMessage = new JTextField("");
-		txtMessage.setBounds(10, 21, 479, 62);
-		panelMessage.add(txtMessage);
-		txtMessage.setColumns(10);
-
 		btnSend = new JButton("");
 		btnSend.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		btnSend.setBounds(551, 33, 65, 39);
+		btnSend.setBounds(584, 56, 65, 39);
 		btnSend.setBorder(new EmptyBorder(0, 0, 0, 0));
 		btnSend.setContentAreaFilled(false);
 		panelMessage.add(btnSend);
 		btnSend.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/send.png")));
 		
-		btnChoose = new JButton("");
-		btnChoose.setBounds(551, 152, 50, 36);
-		panelMessage.add(btnChoose);
-		btnChoose.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		btnChoose.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/attachment.png")));
-		btnChoose.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JFileChooser fileChooser = new JFileChooser();
-				fileChooser.setCurrentDirectory(new File(System
-						.getProperty("user.home")));
-				fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-				int result = fileChooser.showOpenDialog(frameChatGui);
-				if (result == JFileChooser.APPROVE_OPTION) {
-					isSendFile = true;
-					String path_send = (fileChooser.getSelectedFile()
-							.getAbsolutePath()) ;
-					System.out.println(path_send);
-					nameFile = fileChooser.getSelectedFile().getName();
-					txtPath.setText(path_send);
-				}
-			}
-		});
-		btnChoose.setBorder(BorderFactory.createEmptyBorder());
-		btnChoose.setContentAreaFilled(false);
-		
 		txtPath = new JTextField("");
-		txtPath.setBounds(76, 163, 433, 25);
+		txtPath.setForeground(Color.WHITE);
+		txtPath.setBounds(20, 166, 304, 25);
+		txtPath.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		panelMessage.add(txtPath);
 		txtPath.setEditable(false);
 		txtPath.setColumns(10);
-				
-				
+		
+
+		JPanel panelEmoji = new JPanel();
+		panelEmoji.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelEmoji.setForeground(Color.PINK);
+		panelEmoji.setBounds(199, 90, 320, 51);
+		panelEmoji.setVisible(false);
+		panelMessage.add(panelEmoji);
 		Label label = new Label("Path");
 		label.setBounds(10, 166, 39, 22);
 		panelMessage.add(label);
@@ -243,7 +228,7 @@ public class ChatGui {
 			}
 		});
 		btnSendLike.setBackground(new Color(240, 240, 240));
-		btnSendLike.setBounds(501, 31, 50, 43);
+		btnSendLike.setBounds(505, 44, 50, 43);
 		btnSendLike.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/like.png")));
 		//transparent button
 		btnSendLike.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -271,12 +256,14 @@ public class ChatGui {
 		btnSmileIcon.setContentAreaFilled(false);
 		btnSmileIcon.setBounds(62, 96, 50, 36);
 		btnSmileIcon.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/smile.png")));
-		panelMessage.add(btnSmileIcon);
+		panelEmoji.add(btnSmileIcon);
 		
-		Label label_1 = new Label("Icon");
-		label_1.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		label_1.setBounds(10, 107, 39, 22);
-		panelMessage.add(label_1);
+		btnSmileIcon.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panelEmoji.setVisible(false);
+			}
+		});
 		
 		btnSmileBigIcon = new JButton("");
 		btnSmileBigIcon.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -293,8 +280,14 @@ public class ChatGui {
 				updateChat_send_Symbol(msg);
 			}		});
 		btnSmileBigIcon.setBounds(124, 96, 50, 36);
-		panelMessage.add(btnSmileBigIcon);
 		btnSmileBigIcon.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/smile_big.png")));
+		panelEmoji.add(btnSmileBigIcon);
+		btnSmileBigIcon.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panelEmoji.setVisible(false);
+			}
+		});
 		
 		btnCryingIcon = new JButton("");
 		btnCryingIcon.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -312,9 +305,14 @@ public class ChatGui {
 			}
 		});
 		btnCryingIcon.setBounds(186, 96, 65, 36);
-		panelMessage.add(btnCryingIcon);
+		panelEmoji.add(btnCryingIcon);
 		btnCryingIcon.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/crying.png")));
-		
+		btnCryingIcon.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panelEmoji.setVisible(false);
+			}
+		});
 		btnSmileCryingIcon = new JButton("");
 		btnSmileCryingIcon.setBorder(new EmptyBorder(0, 0, 0, 0));
 		btnSmileCryingIcon.setContentAreaFilled(false);
@@ -331,8 +329,14 @@ public class ChatGui {
 			}
 		});
 		btnSmileCryingIcon.setBounds(255, 96, 56, 39);
-		panelMessage.add(btnSmileCryingIcon);
+		panelEmoji.add(btnSmileCryingIcon);
 		btnSmileCryingIcon.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/smile_cry.png")));
+		btnSmileCryingIcon.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panelEmoji.setVisible(false);
+			}
+		});
 		
 		btnHeartEyeIcon = new JButton("");
 		btnHeartEyeIcon.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -350,9 +354,14 @@ public class ChatGui {
 			}
 		});
 		btnHeartEyeIcon.setBounds(323, 96, 75, 36);
-		panelMessage.add(btnHeartEyeIcon);
+		panelEmoji.add(btnHeartEyeIcon);
 		btnHeartEyeIcon.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/heart_eye.png")));
-		
+		btnHeartEyeIcon.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panelEmoji.setVisible(false);
+			}
+		});
 		buttonScaredIcon = new JButton("");
 		buttonScaredIcon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -370,8 +379,13 @@ public class ChatGui {
 		buttonScaredIcon.setContentAreaFilled(false);
 		buttonScaredIcon.setBorder(new EmptyBorder(0, 0, 0, 0));
 		buttonScaredIcon.setBounds(394, 96, 75, 36);
-		panelMessage.add(buttonScaredIcon);
-		
+		panelEmoji.add(buttonScaredIcon);
+		buttonScaredIcon.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panelEmoji.setVisible(false);
+			}
+		});
 		buttonSadIcon = new JButton("");
 		buttonSadIcon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -389,7 +403,97 @@ public class ChatGui {
 		buttonSadIcon.setContentAreaFilled(false);
 		buttonSadIcon.setBorder(new EmptyBorder(0, 0, 0, 0));
 		buttonSadIcon.setBounds(476, 96, 75, 36);
-		panelMessage.add(buttonSadIcon);
+		panelEmoji.add(buttonSadIcon);
+		buttonSadIcon.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panelEmoji.setVisible(false);
+			}
+		});
+
+		
+		JButton btnEmoji = new JButton("");
+		btnEmoji.setIcon(new ImageIcon(ChatGui.class.getResource("/image/start.png")));
+		btnEmoji.setContentAreaFilled(false);
+		btnEmoji.setBorder(new EmptyBorder(0, 0, 0, 0));
+		btnEmoji.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		btnEmoji.setBounds(447, 44, 50, 43);
+		panelMessage.add(btnEmoji);
+		
+		btnChoose = new JButton("");
+		btnChoose.setBounds(553, 51, 32, 32);
+		panelMessage.add(btnChoose);
+		btnChoose.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		btnChoose.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/attachment.png")));
+		btnChoose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setCurrentDirectory(new File(System
+						.getProperty("user.home")));
+				fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				int result = fileChooser.showOpenDialog(frameChatGui);
+				if (result == JFileChooser.APPROVE_OPTION) {
+					isSendFile = true;
+					String path_send = (fileChooser.getSelectedFile()
+							.getAbsolutePath()) ;
+					System.out.println(path_send);
+					nameFile = fileChooser.getSelectedFile().getName();
+					txtPath.setText(path_send);
+				}
+			}
+		});
+		btnChoose.setBorder(BorderFactory.createEmptyBorder());
+		btnChoose.setContentAreaFilled(false);
+		
+				progressSendFile = new JProgressBar(0, 100);
+				progressSendFile.setBounds(50, 140, 172, 14);
+				panelMessage.add(progressSendFile);
+				progressSendFile.setStringPainted(true);
+				
+						txtMessage = new JTextField("");
+						txtMessage.setBounds(20, 22, 425, 62);
+						panelMessage.add(txtMessage);
+						txtMessage.setColumns(10);
+						
+								txtMessage.addKeyListener(new KeyListener() {
+						
+									@Override
+									public void keyTyped(KeyEvent arg0) {
+						
+									}
+						
+									@Override
+									public void keyReleased(KeyEvent arg0) {
+						
+									}
+									
+									@Override
+									public void keyPressed(KeyEvent arg0) {
+										if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+											String msg = txtMessage.getText();
+											if (isStop) {
+												updateChat_send(txtMessage.getText().toString());
+												txtMessage.setText("");
+												return;
+											}
+											if (msg.equals("")) {
+												txtMessage.setText("");
+												txtMessage.setCaretPosition(0);
+												return;
+											}
+											try {
+												chat.sendMessage(Encode.sendMessage(msg));
+												updateChat_send(msg);
+												txtMessage.setText("");
+												txtMessage.setCaretPosition(0);
+											} catch (Exception e) {
+												txtMessage.setText("");
+												txtMessage.setCaretPosition(0);
+											}
+										}
+									}
+								});
+				progressSendFile.setVisible(false);
 		
 		//action when press button Send
 		btnSend.addActionListener(new ActionListener() {
@@ -420,45 +524,6 @@ public class ChatGui {
 			}
 		});
 
-		txtMessage.addKeyListener(new KeyListener() {
-
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-
-			}
-
-			@Override
-			public void keyReleased(KeyEvent arg0) {
-
-			}
-			
-			@Override
-			public void keyPressed(KeyEvent arg0) {
-				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
-					String msg = txtMessage.getText();
-					if (isStop) {
-						updateChat_send(txtMessage.getText().toString());
-						txtMessage.setText("");
-						return;
-					}
-					if (msg.equals("")) {
-						txtMessage.setText("");
-						txtMessage.setCaretPosition(0);
-						return;
-					}
-					try {
-						chat.sendMessage(Encode.sendMessage(msg));
-						updateChat_send(msg);
-						txtMessage.setText("");
-						txtMessage.setCaretPosition(0);
-					} catch (Exception e) {
-						txtMessage.setText("");
-						txtMessage.setCaretPosition(0);
-					}
-				}
-			}
-		});
-
 		btnDisConnect = new JButton("LEAVE CHAT");
 		btnDisConnect.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		btnDisConnect.addActionListener(new ActionListener() {
@@ -479,14 +544,15 @@ public class ChatGui {
 			}
 		});
 		
+		btnEmoji.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panelEmoji.setVisible(true);
+			}
+		});
+		
 		btnDisConnect.setBounds(540, 6, 113, 40);
 		frameChatGui.getContentPane().add(btnDisConnect);
-
-		progressSendFile = new JProgressBar(0, 100);
-		progressSendFile.setBounds(170, 577, 388, 14);
-		progressSendFile.setStringPainted(true);
-		frameChatGui.getContentPane().add(progressSendFile);
-		progressSendFile.setVisible(false);
 
 		textState = new Label("");
 		textState.setBounds(6, 570, 158, 22);
