@@ -210,6 +210,13 @@ public class ChatGui {
 		panelEmoji.setVisible(false);
 		panelMessage.add(panelEmoji);
 		
+		panelMessage.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			panelEmoji.setVisible(false);
+		}
+	});
+		
 		JButton btnSendLike = new JButton("");
 		btnSendLike.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -413,7 +420,7 @@ public class ChatGui {
 		btnEmoji.setContentAreaFilled(false);
 		btnEmoji.setBorder(new EmptyBorder(0, 0, 0, 0));
 		btnEmoji.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		btnEmoji.setBounds(447, 44, 50, 43);
+		btnEmoji.setBounds(447, 44, 50, 51);
 		panelMessage.add(btnEmoji);
 		
 		btnChoose = new JButton("");
