@@ -174,8 +174,8 @@ public class MainGui {
 		
 		lblActiveNow = new JLabel("Crewmates showed up:");
 		lblActiveNow.setForeground(new Color(0, 0, 139));
-		lblActiveNow.setFont(new Font("OCR A Extended", Font.PLAIN, 16));
-		lblActiveNow.setBounds(20, 188, 351, 16);
+		lblActiveNow.setFont(new Font("OCR A Extended", Font.PLAIN, 18));
+		lblActiveNow.setBounds(20, 198, 351, 16);
 		frameMainGui.getContentPane().add(lblActiveNow);
 		
 		listActive = new JList<>(model);
