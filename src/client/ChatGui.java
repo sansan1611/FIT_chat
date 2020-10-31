@@ -196,7 +196,7 @@ public class ChatGui {
 		
 		txtPath = new JTextField("");
 		txtPath.setForeground(Color.WHITE);
-		txtPath.setBounds(20, 166, 304, 25);
+		txtPath.setBounds(83, 53, 304, 25);
 		txtPath.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		panelMessage.add(txtPath);
 		txtPath.setEditable(false);
@@ -209,10 +209,6 @@ public class ChatGui {
 		panelEmoji.setBounds(199, 90, 320, 51);
 		panelEmoji.setVisible(false);
 		panelMessage.add(panelEmoji);
-		Label label = new Label("Path");
-		label.setBounds(10, 166, 39, 22);
-		panelMessage.add(label);
-		label.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		
 		JButton btnSendLike = new JButton("");
 		btnSendLike.addActionListener(new ActionListener() {
@@ -446,7 +442,7 @@ public class ChatGui {
 		btnChoose.setContentAreaFilled(false);
 		
 				progressSendFile = new JProgressBar(0, 100);
-				progressSendFile.setBounds(50, 140, 172, 14);
+				progressSendFile.setBounds(100, 28, 172, 14);
 				panelMessage.add(progressSendFile);
 				progressSendFile.setStringPainted(true);
 				
