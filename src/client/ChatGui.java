@@ -195,12 +195,13 @@ public class ChatGui {
 		btnSend.setIcon(new javax.swing.ImageIcon(ChatGui.class.getResource("/image/send.png")));
 		
 		txtPath = new JTextField("");
-		txtPath.setForeground(Color.WHITE);
-		txtPath.setBounds(83, 53, 304, 25);
+		txtPath.setForeground(Color.BLACK);
+		txtPath.setBounds(30, 53, 405, 25);
 		txtPath.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		panelMessage.add(txtPath);
 		txtPath.setEditable(false);
 		txtPath.setColumns(10);
+		txtPath.setVisible(false);
 		
 
 		JPanel panelEmoji = new JPanel();
@@ -442,6 +443,7 @@ public class ChatGui {
 					System.out.println(path_send);
 					nameFile = fileChooser.getSelectedFile().getName();
 					txtPath.setText(path_send);
+					txtPath.setVisible(true);
 				}
 			}
 		});
@@ -449,7 +451,8 @@ public class ChatGui {
 		btnChoose.setContentAreaFilled(false);
 		
 				progressSendFile = new JProgressBar(0, 100);
-				progressSendFile.setBounds(100, 28, 172, 14);
+				progressSendFile.setForeground(Color.BLACK);
+				progressSendFile.setBounds(30, 28, 405, 25);
 				panelMessage.add(progressSendFile);
 				progressSendFile.setStringPainted(true);
 				
@@ -671,6 +674,7 @@ public class ChatGui {
 						} else if (msgObj.equals(Tags.FILE_REQ_NOACK_TAG)) {
 							Tags.show(frameChatGui, nameGuest
 									+ " don't want receive file", false);
+							txtPath.setVisible(false);
 						} else if (msgObj.equals(Tags.FILE_DATA_BEGIN_TAG)) {
 							finishReceive = false;
 							lblReceive.setVisible(true);
@@ -737,6 +741,7 @@ public class ChatGui {
 //				isFileLarge = true;
 //				sendMessage(Tags.FILE_DATA_CLOSE_TAG);
 				txtPath.setText("");
+				txtPath.setVisible(true);
 				btnChoose.setEnabled(true);
 				isSendFile = false;
 				inFileSend.close();
