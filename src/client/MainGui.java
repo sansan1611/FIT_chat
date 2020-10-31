@@ -39,6 +39,7 @@ public class MainGui {
 	
 	static DefaultListModel<String> model = new DefaultListModel<>();
 	private JLabel lblUsername;
+	private JLabel lblNewLabel_1;
 
 
 	public static void main(String[] args) {
@@ -97,7 +98,7 @@ public class MainGui {
 
 		JLabel lblHello = new JLabel("Welcome ");
 		lblHello.setFont(new Font("OCR A Extended", Font.ITALIC, 14));
-		lblHello.setBounds(162, 65, 287, 16);
+		lblHello.setBounds(197, 65, 287, 16);
 		frameMainGui.getContentPane().add(lblHello);
 
 
@@ -166,10 +167,11 @@ public class MainGui {
 		frameMainGui.getContentPane().add(btnExit);
 		
 		lblLogo = new JLabel("CONNECT WITH CREWMATES IN THE SHIP");
+		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogo.setForeground(new Color(255, 69, 0));
-		lblLogo.setIcon(new ImageIcon(MainGui.class.getResource("/image/icons8-spaceship.png")));
+		lblLogo.setIcon(null);
 		lblLogo.setFont(new Font("OCR A Extended", Font.BOLD, 17));
-		lblLogo.setBounds(20, 11, 444, 79);
+		lblLogo.setBounds(90, 11, 374, 79);
 		frameMainGui.getContentPane().add(lblLogo);
 		
 		lblActiveNow = new JLabel("Crewmates showed up:");
@@ -203,6 +205,11 @@ public class MainGui {
 		lblNewLabel.setIcon(new ImageIcon(MainGui.class.getResource("/image/Crewmate.png")));
 		lblNewLabel.setBounds(20, 92, 449, 99);
 		frameMainGui.getContentPane().add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(MainGui.class.getResource("/image/icons8-spaceship-64.png")));
+		lblNewLabel_1.setBounds(20, 22, 61, 62);
+		frameMainGui.getContentPane().add(lblNewLabel_1);
 	
 			
 	}
