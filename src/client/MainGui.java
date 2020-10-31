@@ -172,7 +172,7 @@ public class MainGui {
 		lblLogo.setBounds(20, 11, 444, 79);
 		frameMainGui.getContentPane().add(lblLogo);
 		
-		lblActiveNow = new JLabel("Crewmates showed up in the ship");
+		lblActiveNow = new JLabel("Crewmates showed up:");
 		lblActiveNow.setForeground(new Color(0, 0, 139));
 		lblActiveNow.setFont(new Font("OCR A Extended", Font.PLAIN, 16));
 		lblActiveNow.setBounds(20, 188, 351, 16);
