@@ -20,21 +20,25 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.awt.Font;
 import javax.swing.UIManager;
+//import javax.swing.JList;
+//import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class Login {
- private static String NAME_FAILED = "THIS NAME CONTAINS INVALID CHARACTER. PLEASE TRY AGAIN";
- private static String NAME_EXSIST = "THIS NAME IS ALREADY USED. PLEASE TRY AGAIN";
- private static String SERVER_NOT_START = "TURN ON SERVER BEFORE START";
+ private static String NAME_FAILED = "ENTER VALID CREWNAME";
+ private static String NAME_EXSIST = "DUBLICATE CREWNAME";
+ private static String SERVER_NOT_START = "TURN ON SERVER";
 
  private Pattern checkName = Pattern.compile("[_a-zA-Z][_a-zA-Z0-9]*");
 
  private JFrame frameLoginForm;
- private JTextField txtPort;
  private JLabel lblError;
  private String name = "", IP = "";
  private JTextField txtIP;	
  private JTextField txtUsername;
  private JButton btnLogin;
+ private JLabel lblNewLabel_1;
 
  public static void main(String[] args) {
   EventQueue.invokeLater(new Runnable() {
@@ -55,60 +59,53 @@ public class Login {
 
  private void initialize() {
   frameLoginForm = new JFrame();
-  frameLoginForm.setTitle("Login Form");
+  frameLoginForm.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
+  frameLoginForm.getContentPane().setBackground(Color.WHITE);
+  frameLoginForm.getContentPane().setFont(new Font("OCR A Extended", Font.PLAIN, 14));
+  frameLoginForm.setTitle("Crewmates Gate");
   frameLoginForm.setResizable(false);
   frameLoginForm.setBounds(100, 100, 517, 343);
   frameLoginForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   frameLoginForm.getContentPane().setLayout(null);
 
-  JLabel lblWelcome = new JLabel("Connect With Server\r\n");
+  JLabel lblWelcome = new JLabel("Crewmates Login\r\n");
   lblWelcome.setForeground(UIManager.getColor("RadioButtonMenuItem.selectionBackground"));
-  lblWelcome.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-  lblWelcome.setBounds(27, 13, 312, 48);
+  lblWelcome.setFont(new Font("OCR A Extended", Font.BOLD, 21));
+  lblWelcome.setBounds(268, 24, 215, 38);
   frameLoginForm.getContentPane().add(lblWelcome);
 
   JLabel lblHostServer = new JLabel("IP Server");
-  lblHostServer.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-  lblHostServer.setBounds(47, 74, 86, 20);
+  lblHostServer.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
+  lblHostServer.setBounds(199, 132, 86, 20);
   frameLoginForm.getContentPane().add(lblHostServer);
 
-  JLabel lblPortServer = new JLabel("Port Server");
-  lblPortServer.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-  lblPortServer.setBounds(349, 77, 79, 14);
-  frameLoginForm.getContentPane().add(lblPortServer);
-
-  txtPort = new JTextField();
-  txtPort.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-  txtPort.setText("8080");
-  txtPort.setEditable(false);
-  txtPort.setColumns(10);
-  txtPort.setBounds(429, 70, 65, 28);
-  frameLoginForm.getContentPane().add(txtPort);
-
-  JLabel lblUserName = new JLabel("User Name");
-  lblUserName.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-  lblUserName.setBounds(10, 134, 106, 38);
+  JLabel lblUserName = new JLabel("Name");
+  lblUserName.setFont(new Font("OCR A Extended", Font.PLAIN, 14));
+  lblUserName.setBounds(235, 69, 60, 38);
   frameLoginForm.getContentPane().add(lblUserName);
-  lblUserName.setIcon(new javax.swing.ImageIcon(Login.class.getResource("/image/user.png")));
+  lblUserName.setIcon(new javax.swing.ImageIcon(Login.class.getResource("")));
 
   lblError = new JLabel("");
-  lblError.setBounds(66, 287, 399, 20);
+  lblError.setForeground(Color.RED);
+  lblError.setFont(new Font("OCR A Extended", Font.PLAIN, 12));
+  lblError.setBounds(10, 180, 201, 20);
   frameLoginForm.getContentPane().add(lblError);
 
   txtIP = new JTextField();
-  txtIP.setBounds(128, 70, 185, 28);
+  txtIP.setBounds(286, 129, 201, 28);
   frameLoginForm.getContentPane().add(txtIP);
   txtIP.setColumns(10);
 
   txtUsername = new JTextField();
   txtUsername.setFont(new Font("Segoe UI", Font.PLAIN, 13));
   txtUsername.setColumns(10);
-  txtUsername.setBounds(128, 138, 366, 30);
+  txtUsername.setBounds(286, 73, 201, 30);
   frameLoginForm.getContentPane().add(txtUsername);
 
-  btnLogin = new JButton("Login");
-  btnLogin.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-  btnLogin.setIcon(new javax.swing.ImageIcon(Login.class.getResource("/image/login.png")));
+  btnLogin = new JButton("Get in the ship");
+  btnLogin.setForeground(new Color(70, 130, 180));
+  btnLogin.setFont(new Font("OCR A Extended", Font.ITALIC, 12));
+ btnLogin.setIcon(new ImageIcon(Login.class.getResource("/image/icons8-login-100.png")));
   btnLogin.addActionListener(new ActionListener() {
 
    public void actionPerformed(ActionEvent arg0) {
@@ -155,8 +152,17 @@ public class Login {
    }
   });
   
-  btnLogin.setBounds(325, 217, 169, 63);
+  btnLogin.setBounds(225, 199, 262, 48);
   frameLoginForm.getContentPane().add(btnLogin);
+  
+  JLabel lblNewLabel = new JLabel("New label");
+  lblNewLabel.setBounds(288, 82, 46, 14);
+  frameLoginForm.getContentPane().add(lblNewLabel);
+  
+  lblNewLabel_1 = new JLabel("");
+  lblNewLabel_1.setIcon(new ImageIcon(Login.class.getResource("/image/Untitled.png")));
+  lblNewLabel_1.setBounds(41, 39, 139, 177);
+  frameLoginForm.getContentPane().add(lblNewLabel_1);
   lblError.setVisible(false);
 
 
