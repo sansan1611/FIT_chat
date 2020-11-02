@@ -80,7 +80,7 @@ public class ServerGui {
 		frmServerMangement.setTitle("Crewmate Server Mangement");
 		frmServerMangement.setResizable(false);
 		frmServerMangement.setBounds(200, 200, 730, 686);
-		frmServerMangement.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frmServerMangement.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmServerMangement.getContentPane().setLayout(null);
 		frmServerMangement.setBackground(Color.ORANGE);
 
