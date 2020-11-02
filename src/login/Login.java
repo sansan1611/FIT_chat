@@ -24,6 +24,8 @@ import javax.swing.UIManager;
 //import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Login {
  private static String NAME_FAILED = "ENTER VALID CREWNAME";
@@ -69,9 +71,9 @@ public class Login {
   frameLoginForm.getContentPane().setLayout(null);
 
   JLabel lblWelcome = new JLabel("Crewmates Login\r\n");
-  lblWelcome.setForeground(UIManager.getColor("RadioButtonMenuItem.selectionBackground"));
+  lblWelcome.setForeground(new Color(0, 0, 255));
   lblWelcome.setFont(new Font("OCR A Extended", Font.BOLD, 21));
-  lblWelcome.setBounds(268, 24, 215, 38);
+  lblWelcome.setBounds(257, 23, 230, 38);
   frameLoginForm.getContentPane().add(lblWelcome);
 
   JLabel lblHostServer = new JLabel("IP Server");
@@ -97,6 +99,7 @@ public class Login {
   txtIP.setColumns(10);
 
   txtUsername = new JTextField();
+
   txtUsername.setFont(new Font("Segoe UI", Font.PLAIN, 13));
   txtUsername.setColumns(10);
   txtUsername.setBounds(286, 73, 201, 30);
@@ -114,7 +117,6 @@ public class Login {
     IP = txtIP.getText();
 
 
-    //must edit here
     if (checkName.matcher(name).matches() && !IP.equals("")) {
      try {
       Random rd = new Random();

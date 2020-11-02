@@ -93,12 +93,12 @@ public class MainGui {
 		frameMainGui.setTitle("Menu Discussion");
 		frameMainGui.setResizable(false);
 		frameMainGui.setBounds(100, 100, 500, 560);
-		frameMainGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frameMainGui.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frameMainGui.getContentPane().setLayout(null);
 
 		JLabel lblHello = new JLabel("Welcome ");
 		lblHello.setFont(new Font("OCR A Extended", Font.ITALIC, 14));
-		lblHello.setBounds(197, 65, 69, 16);
+		lblHello.setBounds(198, 65, 69, 16);
 		frameMainGui.getContentPane().add(lblHello);
 
 
@@ -106,13 +106,13 @@ public class MainGui {
 		lblFriendsName.setBackground(SystemColor.controlHighlight);
 		lblFriendsName.setForeground(new Color(0, 0, 255));
 		lblFriendsName.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
-		lblFriendsName.setBounds(20, 423, 110, 16);
+		lblFriendsName.setBounds(20, 423, 133, 16);
 		frameMainGui.getContentPane().add(lblFriendsName);
 		
 		txtNameFriend = new JTextField("");
 		txtNameFriend.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
 		txtNameFriend.setColumns(10);
-		txtNameFriend.setBounds(132, 418, 337, 28);
+		txtNameFriend.setBounds(142, 418, 327, 28);
 		frameMainGui.getContentPane().add(txtNameFriend);
 
 		btnChat = new JButton("Discussion");
@@ -195,7 +195,7 @@ public class MainGui {
 		listActive.setBounds(20, 215, 449, 197);
 		frameMainGui.getContentPane().add(listActive);
 		
-		lblUsername = new JLabel("456");
+		lblUsername = new JLabel(nameUser);
 		lblUsername.setForeground(new Color(165, 42, 42));
 		lblUsername.setFont(new Font("OCR A Extended", Font.PLAIN, 15));
 		lblUsername.setBounds(259, 65, 146, 16);

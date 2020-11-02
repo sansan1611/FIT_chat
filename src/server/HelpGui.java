@@ -49,7 +49,7 @@ public class HelpGui extends JDialog {
 			txtrIntro.setBackground(SystemColor.info);
 			txtrIntro.setBounds(232, 11, 192, 138);
 			txtrIntro.setWrapStyleWord(true);
-			txtrIntro.setText("Huong dan su dung!!");
+			txtrIntro.setText("If there is any problems, please contact crewmate@space.ship.com");
 			txtrIntro.setTabSize(4);
 			txtrIntro.setRows(3);
 			txtrIntro.setLineWrap(true);
@@ -57,7 +57,7 @@ public class HelpGui extends JDialog {
 		}
 		{
 			JLabel lblIntroImage = new JLabel("");
-			ImageIcon imageIcon = new ImageIcon(new ImageIcon(HelpGui.class.getResource("/image/crewmate.png")).getImage().getScaledInstance(90, 100, java.awt.Image.SCALE_SMOOTH));
+			ImageIcon imageIcon = new ImageIcon(new ImageIcon(HelpGui.class.getResource("/image/crewmate00.png")).getImage().getScaledInstance(90, 100, java.awt.Image.SCALE_SMOOTH));
 			lblIntroImage.setIcon(imageIcon);
 			lblIntroImage.setBounds(332, 150, 92, 100);
 			contentPanel.add(lblIntroImage);

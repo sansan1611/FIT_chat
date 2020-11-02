@@ -89,7 +89,7 @@ public class TeamGui extends JDialog {
 		contentPanel.add(lblLamThiThuong);
 		
 		JLabel lblQuynhImage = new JLabel("");
-		ImageIcon img1 = new ImageIcon(new ImageIcon(TeamGui.class.getResource("/image/crewmate.png")).getImage().getScaledInstance(50, 60, java.awt.Image.SCALE_SMOOTH));
+		ImageIcon img1 = new ImageIcon(new ImageIcon(TeamGui.class.getResource("/image/crewmate00.png")).getImage().getScaledInstance(50, 60, java.awt.Image.SCALE_SMOOTH));
 		lblQuynhImage.setIcon(img1);
 		lblQuynhImage.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQuynhImage.setBounds(304, 11, 50, 56);

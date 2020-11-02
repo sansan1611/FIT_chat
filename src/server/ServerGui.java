@@ -80,7 +80,7 @@ public class ServerGui {
 		frmServerMangement.setTitle("Crewmate Server Mangement");
 		frmServerMangement.setResizable(false);
 		frmServerMangement.setBounds(200, 200, 730, 686);
-		frmServerMangement.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmServerMangement.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmServerMangement.getContentPane().setLayout(null);
 		frmServerMangement.setBackground(Color.ORANGE);
 
@@ -132,7 +132,7 @@ public class ServerGui {
 		txtMessage.setForeground(Color.GREEN);
 		txtMessage.setFont(new Font("Consolas", Font.PLAIN, 14));
 		txtMessage.setEditable(false);
-		txtMessage.setBounds(65, 271, 564, 354);		////// Vi tri textArea
+		txtMessage.setBounds(26, 271, 681, 354);		////// Vi tri textArea
 		frmServerMangement.getContentPane().add(txtMessage);
 
 		JButton btnStop = new JButton("");
@@ -153,7 +153,7 @@ public class ServerGui {
 				}
 			}
 		});
-		btnStop.setBounds(176, 148, 98, 43);						//// Vi tri button Stop
+		btnStop.setBounds(176, 148, 89, 43);						//// Vi tri button Stop
 		frmServerMangement.getContentPane().add(btnStop);
 		btnStop.setIcon(new ImageIcon(ServerGui.class.getResource("/image/off.png")));
 		

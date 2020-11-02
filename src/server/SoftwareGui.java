@@ -49,7 +49,7 @@ public class SoftwareGui extends JDialog {
 			JTextArea txtrIntro = new JTextArea();
 			txtrIntro.setBackground(Color.WHITE);
 			txtrIntro.setWrapStyleWord(true);
-			txtrIntro.setText("Join with us!\r\nConect to another crewmate!\r\nChat immediately!\r\nLike, show emotions!\r\nSend files, images!\r\n\r\nCome and have fun!!!");
+			txtrIntro.setText("Join with us!\r\nConect to another crewmate!\r\nChat immediately!\r\nLike, show emotions!\r\n\r\nCome and have fun!!!");
 			txtrIntro.setTabSize(4);
 			txtrIntro.setRows(3);
 			txtrIntro.setLineWrap(true);
