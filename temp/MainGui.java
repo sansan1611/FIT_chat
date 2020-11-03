@@ -18,7 +18,12 @@ import java.awt.Color;
 import javax.swing.JList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Window.Type;
+import java.awt.SystemColor;
+import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
 
 public class MainGui {
 
@@ -34,6 +39,7 @@ public class MainGui {
 	
 	static DefaultListModel<String> model = new DefaultListModel<>();
 	private JLabel lblUsername;
+	private JLabel lblNewLabel_1;
 
 
 	public static void main(String[] args) {
@@ -81,19 +87,24 @@ public class MainGui {
 	
 	private void initialize() {
 		frameMainGui = new JFrame();
+		frameMainGui.getContentPane().setBackground(new Color(192, 192, 192));
+		frameMainGui.getContentPane().setFont(new Font("OCR A Extended", Font.PLAIN, 11));
+		frameMainGui.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
 		frameMainGui.setTitle("Menu Chat");
 		frameMainGui.setResizable(false);
 		frameMainGui.setBounds(100, 100, 500, 560);
-		frameMainGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frameMainGui.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frameMainGui.getContentPane().setLayout(null);
 
-		JLabel lblHello = new JLabel("Welcome");
+		JLabel lblHello = new JLabel("Welcome ");
 		lblHello.setFont(new Font("OCR A Extended", Font.ITALIC, 14));
 		lblHello.setBounds(198, 65, 69, 16);
 		frameMainGui.getContentPane().add(lblHello);
 
 
-		JLabel lblFriendsName = new JLabel("Crewmate name");
+		JLabel lblFriendsName = new JLabel("Crewmate name\r\n");
+		lblFriendsName.setBackground(SystemColor.controlHighlight);
+		lblFriendsName.setForeground(new Color(0, 0, 255));
 		lblFriendsName.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
 		lblFriendsName.setBounds(20, 423, 133, 16);
 		frameMainGui.getContentPane().add(lblFriendsName);
@@ -156,20 +167,24 @@ public class MainGui {
 		frameMainGui.getContentPane().add(btnExit);
 		
 		lblLogo = new JLabel("CONNECT WITH CREWMATES IN THE SHIP");
-		lblLogo.setForeground(new Color(0, 0, 205));
+		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogo.setForeground(new Color(255, 69, 0));
 		lblLogo.setIcon(null);
 		lblLogo.setFont(new Font("OCR A Extended", Font.BOLD, 17));
-		lblLogo.setBounds(90, 16, 374, 79);
+		lblLogo.setBounds(90, 11, 374, 79);
 		frameMainGui.getContentPane().add(lblLogo);
 		
 		lblActiveNow = new JLabel("Crewmates showed up:");
-		lblActiveNow.setForeground(new Color(100, 149, 237));
-		lblActiveNow.setFont(new Font("OCR A Extended", Font.PLAIN, 19));
+		lblActiveNow.setForeground(new Color(0, 0, 139));
+		lblActiveNow.setFont(new Font("OCR A Extended", Font.PLAIN, 18));
 		lblActiveNow.setBounds(20, 198, 351, 16);
 		frameMainGui.getContentPane().add(lblActiveNow);
 		
 		listActive = new JList<>(model);
-		listActive.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
+		listActive.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		listActive.setForeground(new Color(0, 0, 255));
+		listActive.setBackground(new Color(192, 192, 192));
+		listActive.setFont(new Font("OCR A Extended", Font.PLAIN, 15));
 		listActive.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -181,15 +196,20 @@ public class MainGui {
 		frameMainGui.getContentPane().add(listActive);
 		
 		lblUsername = new JLabel(nameUser);
-		lblUsername.setForeground(Color.RED);
-		lblUsername.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		lblUsername.setForeground(new Color(165, 42, 42));
+		lblUsername.setFont(new Font("OCR A Extended", Font.PLAIN, 15));
 		lblUsername.setBounds(259, 65, 146, 16);
 		frameMainGui.getContentPane().add(lblUsername);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(MainGui.class.getResource("/image/crewmate.png")));
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(MainGui.class.getResource("/image/Crewmate.png")));
 		lblNewLabel.setBounds(20, 92, 449, 99);
 		frameMainGui.getContentPane().add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(MainGui.class.getResource("/image/icons8-spaceship-64.png")));
+		lblNewLabel_1.setBounds(20, 22, 61, 62);
+		frameMainGui.getContentPane().add(lblNewLabel_1);
 	
 			
 	}
