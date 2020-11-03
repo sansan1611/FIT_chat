@@ -1,7 +1,5 @@
-/test/
-/server/
-/image/
-/data/
-/tags/
 /client/
+/data/
+/server/
+/tags/
 /login/
